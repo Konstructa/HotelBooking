@@ -21,7 +21,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Adapters\Data\Data.csproj" />
     <ProjectReference Include="..\..\..\Core\Domain\Domain.csproj" />
   </ItemGroup>
 
