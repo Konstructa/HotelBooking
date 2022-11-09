@@ -9,10 +9,11 @@ namespace Domain.Ports
 {
     public interface IGuestRepository
     {
+        Task<int> Create(Guest guest);
         Task<Guest> Get(int id);
-        Task<IEnumerable<Guest>> GetAll();
         Task Delete(int id);
         Task Update(Guest guest);
-        Task<int> Salve(Guest guest);
+        Task<IEnumerable<Guest>> GetAll();
+
     }
 }
