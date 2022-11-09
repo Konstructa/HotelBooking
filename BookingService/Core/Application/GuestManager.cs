@@ -32,15 +32,6 @@ namespace Application
                 };
 
             }
-            catch (InvalidEmailException)
-            {
-                return new GuestResponse
-                {
-                    Success = false,
-                    ErrorCode = ErrorCodes.INVALID_EMAIL,
-                    Message = "Email not valid"
-                };
-            }
             catch (InvalidPersonDocumentIdException)
             {
                 return new GuestResponse
@@ -57,6 +48,15 @@ namespace Application
                     Success = false,
                     ErrorCode = ErrorCodes.MISSING_REQUIRED_INFORMATION,
                     Message = "Missing required information"
+                };
+            }
+            catch (InvalidEmailException)
+            {
+                return new GuestResponse
+                {
+                    Success = false,
+                    ErrorCode = ErrorCodes.INVALID_EMAIL,
+                    Message = "Email not valid"
                 };
             }
             catch (Exception)
