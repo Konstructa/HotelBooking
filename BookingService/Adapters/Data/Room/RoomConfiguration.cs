@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Entities = Domain.Entities;
 
 
-namespace Data
+namespace Data.Room
 {
     internal class RoomConfiguration : IEntityTypeConfiguration<Entities.Room>
     {
