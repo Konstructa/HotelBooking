@@ -6,7 +6,10 @@ using Data.Guest;
 using Application.Guest;
 using Application.Room.Ports;
 using Data.Room;
+using Data.Booking;
 using Application.Room;
+using Application.Booking;
+using Application.Booking.Ports;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,6 +22,8 @@ builder.Services.AddScoped<IGuestManager, GuestManager>();
 builder.Services.AddScoped<IGuestRepository, GuestRepository>();
 builder.Services.AddScoped<IRoomRepository, RoomRepository>();
 builder.Services.AddScoped<IRoomManager, RoomManager>();
+builder.Services.AddScoped<IBookingRepository, BookingRepository>();
+builder.Services.AddScoped<IBookingManager, BookingManager>();
 #endregion
 
 #region BR wiring up

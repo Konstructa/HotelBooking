@@ -16,6 +16,7 @@ namespace Domain.Entities
         public int Level { get; set; }
         public bool InMaintenance { get; set; }
         public Price Price { get; set; }
+        public ICollection<Booking> Bookings { get; set; }
         public bool IsAvailable
         {
             get 
@@ -30,7 +31,18 @@ namespace Domain.Entities
 
         public bool HasGuest
         {
-            get { return true; }
+            get
+            {
+                var notAvailableStatuses = new List<Enums.Status>()
+                {
+                    Enums.Status.Created,
+                    Enums.Status.Paid,
+                };
+
+                return Bookings.Where(
+                    b => b.Room.Id == this.Id &&
+                    notAvailableStatuses.Contains(b.Status)).Count() > 0;
+            }
         }
 
         private void ValidateState()

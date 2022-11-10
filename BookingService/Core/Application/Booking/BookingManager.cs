@@ -11,10 +11,17 @@ namespace Application.Booking
     {
 
         private readonly IBookingRepository _bookingRepository;
+        private readonly IRoomRepository _roomRepository;
+        private readonly IGuestRepository _guestRepository;
 
-        public BookingManager(IBookingRepository bookingRepository)
+        public BookingManager(
+            IBookingRepository bookingRepository, 
+            IRoomRepository roomRepository, 
+            IGuestRepository guestRepository)
         {
             _bookingRepository = bookingRepository;
+            _roomRepository = roomRepository;
+            _guestRepository = guestRepository;
         }
 
         public async Task<BookingResponse> CreateBooking(BookingDto bookingDto)
@@ -23,7 +30,13 @@ namespace Application.Booking
             {
                 var booking = BookingDto.MapToEntity(bookingDto);
 
+                booking.Guest = await _guestRepository.Get(bookingDto.GuestId);
+
+                booking.Room = await _roomRepository.GetAggregate(bookingDto.RoomId);
+
                 await booking.Save(_bookingRepository);
+
+                bookingDto.Id = booking.Id;
 
                 return new BookingResponse
                 {
