@@ -33,7 +33,6 @@ namespace Application.Responses
         PAYMENT_INVALID_PAYMENT_INTENTION = 500,
         PAYMENT_PROVIDER_NOT_IMPLEMENTED = 501
     }
-}
     public abstract class Response
     {
         public bool Success { get; set; }
