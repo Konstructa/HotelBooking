@@ -4,6 +4,9 @@ using Application.Ports;
 using Microsoft.EntityFrameworkCore;
 using Data.Guest;
 using Application.Guest;
+using Application.Room.Ports;
+using Data.Room;
+using Application.Room;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +17,8 @@ builder.Services.AddControllers();
 #region IoC
 builder.Services.AddScoped<IGuestManager, GuestManager>();
 builder.Services.AddScoped<IGuestRepository, GuestRepository>();
+builder.Services.AddScoped<IRoomRepository, RoomRepository>();
+builder.Services.AddScoped<IRoomManager, RoomManager>();
 #endregion
 
 #region BR wiring up
