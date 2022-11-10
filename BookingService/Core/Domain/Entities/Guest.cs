@@ -34,6 +34,11 @@ namespace Domain.Entities
             }
         }
 
+        public bool IsValid()
+        {
+            this.ValidateState();
+            return true;
+        }
         public async Task Save(IGuestRepository guestRepository)
         {
             this.ValidateState();
