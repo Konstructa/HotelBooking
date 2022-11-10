@@ -25,7 +25,7 @@ namespace ApplicationTests
         [Test]
         public async Task Test1()
         {
-            var guestDto = new GuestDTO
+            var guestDto = new GuestDto
             {
                 Name = "Fulano",
                 Surname = "Beltrano",
@@ -54,7 +54,7 @@ namespace ApplicationTests
         [TestCase("teste", "teste", "")]
         public async Task ShouldReturnMissingRequiredInformationWhenDocsAreInvalid(string name, string surname, string email)
         {
-            var guestDto = new GuestDTO
+            var guestDto = new GuestDto
             {
                 Name = name,
                 Surname = surname,
