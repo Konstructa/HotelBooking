@@ -11,8 +11,8 @@ using Application.Room;
 using Application.Booking;
 using Application.Booking.Ports;
 using Application.Payment.Ports;
-using Payments.Application;
 using System.Text.Json.Serialization;
+using Payments.Application;
 
 var builder = WebApplication.CreateBuilder(args);
 
