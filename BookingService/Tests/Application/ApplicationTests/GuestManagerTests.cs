@@ -8,7 +8,7 @@ using Moq;
 
 namespace ApplicationTests
 {
-    public class Tests
+    public class GuestNanagerTests
     {
         GuestManager guestManager;
 
