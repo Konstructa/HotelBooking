@@ -3,7 +3,8 @@ using Application.Booking.Ports;
 using Application.Responses;
 using Domain.Ports;
 using Domain.Exceptions;
-
+using Application.Payment.Ports;
+using Application.Payment.Responses;
 
 namespace Application.Booking
 {
@@ -13,15 +14,17 @@ namespace Application.Booking
         private readonly IBookingRepository _bookingRepository;
         private readonly IRoomRepository _roomRepository;
         private readonly IGuestRepository _guestRepository;
-
+        private readonly IPaymentProcessorFactory _paymentProcessorFactory;
         public BookingManager(
             IBookingRepository bookingRepository, 
             IRoomRepository roomRepository, 
-            IGuestRepository guestRepository)
+            IGuestRepository guestRepository,
+            IPaymentProcessorFactory paymentProcessorFactory)
         {
             _bookingRepository = bookingRepository;
             _roomRepository = roomRepository;
             _guestRepository = guestRepository;
+            _paymentProcessorFactory = paymentProcessorFactory;
         }
 
         public async Task<BookingResponse> CreateBooking(BookingDto bookingDto)
@@ -103,6 +106,25 @@ namespace Application.Booking
         public Task<BookingDto> GetBooking(int id)
         {
             throw new NotImplementedException();
+        }
+
+        public async Task<PaymentResponse> PayForABooking(PaymentRequestDto paymentRequestDto)
+        {
+            var paymentProcessor = _paymentProcessorFactory.GetPaymentProcessor(paymentRequestDto.SelectedPaymentProvider);
+
+            var response = await paymentProcessor.CapturePayment(paymentRequestDto.PaymentIntention);
+
+            if (response.Success)
+            {
+                return new PaymentResponse
+                {
+                    Success = true,
+                    Data = response.Data,
+                    Message = "Payment successfully processed"
+                };
+            }
+
+            return response;
         }
     }
 }
