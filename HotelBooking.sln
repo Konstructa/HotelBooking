@@ -45,6 +45,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Payments.Application", "PaymentService\Core\Application\Application\Payments.Application.csproj", "{61F2BDD0-D03A-4291-BBB6-60FB847F7AA1}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Payments.UnitTests", "Payments.UnitTests", "{1E1E8FD1-0306-44E8-AB94-1D8FC9D9A71F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Payments.UnitTests", "PaymentService\Payments.UnitTests\Payments.UnitTests\Payments.UnitTests.csproj", "{DAA1227A-993D-4F70-BBCE-2CAE131C7222}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -83,6 +87,10 @@ Global
 		{61F2BDD0-D03A-4291-BBB6-60FB847F7AA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{61F2BDD0-D03A-4291-BBB6-60FB847F7AA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{61F2BDD0-D03A-4291-BBB6-60FB847F7AA1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DAA1227A-993D-4F70-BBCE-2CAE131C7222}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DAA1227A-993D-4F70-BBCE-2CAE131C7222}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DAA1227A-993D-4F70-BBCE-2CAE131C7222}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DAA1227A-993D-4F70-BBCE-2CAE131C7222}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -107,6 +115,8 @@ Global
 		{9D91E2A2-31B2-4462-B3C2-016024EE22D7} = {E573DA62-F745-4E2D-BA45-6C3E5D929688}
 		{CDEA14F8-A9BB-4047-9611-ABB8A7E808C8} = {9D91E2A2-31B2-4462-B3C2-016024EE22D7}
 		{61F2BDD0-D03A-4291-BBB6-60FB847F7AA1} = {CDEA14F8-A9BB-4047-9611-ABB8A7E808C8}
+		{1E1E8FD1-0306-44E8-AB94-1D8FC9D9A71F} = {E573DA62-F745-4E2D-BA45-6C3E5D929688}
+		{DAA1227A-993D-4F70-BBCE-2CAE131C7222} = {1E1E8FD1-0306-44E8-AB94-1D8FC9D9A71F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F534576C-B058-41AA-A684-3A7F6735B081}
