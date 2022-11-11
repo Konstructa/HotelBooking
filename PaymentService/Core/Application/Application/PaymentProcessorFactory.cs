@@ -9,13 +9,11 @@ namespace Payments.Application
     {
         public IPaymentProcessor GetPaymentProcessor(SupportedPaymentProviders selectedPaymentProvider)
         {
-            switch (selectedPaymentProvider)
+            return selectedPaymentProvider switch
             {
-                case SupportedPaymentProviders.MercadoPago:
-                    return new MercadoPagoAdapter();
-
-                default: return new NotImplementedPaymentProvider();
-            }
+                SupportedPaymentProviders.MercadoPago => new MercadoPagoAdapter(),
+                _ => new NotImplementedPaymentProvider(),
+            };
         }
     }
 }
