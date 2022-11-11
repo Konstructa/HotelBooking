@@ -1,5 +1,6 @@
 ﻿
 using Application.Booking.Dtos;
+using Application.Payment.Responses;
 
 namespace Application.Booking.Ports
 {
@@ -7,5 +8,6 @@ namespace Application.Booking.Ports
     {
         Task<BookingResponse> CreateBooking(BookingDto booking);
         Task<BookingDto> GetBooking(int id);
+        Task<PaymentResponse> PayForABooking(PaymentRequestDto paymentRequestDto);
     }
 }
